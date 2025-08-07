@@ -21,7 +21,7 @@ namespace Employee_MVC.Models
         {
             List<employee> employeesList = new List<employee>();
             SqlConnection con = new SqlConnection(cs); // we create a SQL Connection Object for connecting to the database using connection string "cs".
-            SqlCommand cmd = new SqlCommand("spGetEmploteeDetails",con);
+            SqlCommand cmd = new SqlCommand("spGetEmployeeDetails",con);
 
             cmd.CommandType = CommandType.StoredProcedure; //we tell, in cmd object, we have stored procedure.
             con.Open(); // we open the connection to the database.
@@ -39,10 +39,90 @@ namespace Employee_MVC.Models
                 employeesList.Add(emp); // we add all Employee objects to the employeesList.
             }
 
-            con.Close(); // we close the connection to the database.
-
+            con.Close(); 
 
             return employeesList;
         }
+
+        //Add a new Employee
+        public bool AddEmployee(employee emp)
+        {
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("spAddEmployee", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@name", emp.name);
+            cmd.Parameters.AddWithValue("@gender", emp.gender);
+            cmd.Parameters.AddWithValue("@age", emp.age);
+            cmd.Parameters.AddWithValue("@salary", emp.salary);
+            cmd.Parameters.AddWithValue("@city", emp.city);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (i > 0) 
+            {
+                return true; 
+            }
+            else
+            {
+                return false; 
+            }
+        }
+
+        //Update an existing Employee
+        public bool UpdateEmployee(employee emp)
+        {
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("spUpdateEmployee", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", emp.Id);
+            cmd.Parameters.AddWithValue("@name", emp.name);
+            cmd.Parameters.AddWithValue("@gender", emp.gender);
+            cmd.Parameters.AddWithValue("@age", emp.age);
+            cmd.Parameters.AddWithValue("@salary", emp.salary);
+            cmd.Parameters.AddWithValue("@city", emp.city);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        //Delete an Employee
+        public bool DeleteEmployee(int id)
+        {
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("spDeleteEmployee", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }
