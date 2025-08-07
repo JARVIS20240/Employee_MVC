@@ -1,0 +1,109 @@
+@*@model Employee_MVC.Models.employee
+
+    @{
+        ViewBag.Title = "Delete";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Delete</h2>
+
+    <div>
+        <h4>employee</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.gender)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.gender)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.age)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.age)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.salary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.salary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.city)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+@model Employee_MVC.Models.employee
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white border-bottom">
+            <h2 class="text-danger mb-0">Delete</h2>
+            <h5 class="text-muted mt-1">Are you sure you want to delete this?</h5>
+        </div>
+
+        <div class="card-body">
+            <h4 class="fw-semibold mb-4 text-dark">Employee</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.name)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.name)</dd>
+
+                <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.gender)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.gender)</dd>
+
+                <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.age)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.age)</dd>
+
+                <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.salary)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.salary)</dd>
+
+                <dt class="col-sm-3 text-muted">@Html.DisplayNameFor(model => model.city)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.city)</dd>
+            </dl>
+        </div>
+
+        <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+
+                <input type="submit" value="Delete" class="btn btn-danger px-4" />
+            }
+
+            <div>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-secondary ms-3" })
+            </div>
+        </div>
+    </div>
+</div>

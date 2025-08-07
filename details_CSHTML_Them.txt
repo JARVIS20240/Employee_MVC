@@ -1,0 +1,63 @@
+@model Employee_MVC.Models.employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Employee Details</h4>
+        </div>
+        <div class="card-body bg-light">
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.gender)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.gender)
+                </dd>
+
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.age)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.age)
+                </dd>
+
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.salary)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.salary)
+                </dd>
+
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.city)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.city)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</div>
