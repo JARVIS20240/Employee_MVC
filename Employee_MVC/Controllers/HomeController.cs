@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Employee_MVC.Models;  
+using Employee_MVC.Models;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Employee_MVC.Controllers
 {

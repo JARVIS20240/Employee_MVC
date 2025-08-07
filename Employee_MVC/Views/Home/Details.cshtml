@@ -5,63 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Employee Details</h4>
+        </div>
+        <div class="card-body bg-light">
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
 
-<div>
-    <h4>employee</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.gender)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.gender)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.age)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.age)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.salary)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.salary)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.salary)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.salary)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.city)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.city)
-        </dd>
-
-    </dl>
+                <dt class="col-sm-3 font-weight-bold text-secondary">
+                    @Html.DisplayNameFor(model => model.city)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.city)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
